@@ -1,0 +1,8 @@
+sub-module2/target/
+sub-module1/target/
+target/
+.idea/
+.mvn/
+sub-module1/*.iml
+sub-module2/*.iml
+*.iml

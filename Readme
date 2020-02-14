@@ -1,0 +1,73 @@
+There are various ways to build executable jar with dependnecies involved - https://www.baeldung.com/executable-jar-with-maven
+
+
+To watch contents inside jar file -> jar tf <jar-filename>
+
+
+Sample Archtype:
+mvn archetype:generate
+  -DgroupId=org.learn.maven
+  -DartifactId=multi-module-project                                      (preferred)
+  -DarchetypeArtifactId=maven-archetype-quickstart
+  -DinteractiveMode=false
+
+or
+
+mvn archetype:generate
+  -DinteractiveMode=true
+
+
+Core maven plugins  - https://www.baeldung.com/core-maven-plugins
+
+
+Dependency Scopes (dependnecy available from ):
+compile -> build
+provided -> compilation
+runtime -> runtime (if transitive dependency not needed for compilation)
+test -> test (not available on runtime also, only during testing)
+import -> indicates that this dependency should be replaced with all effective dependencies declared in it's POM (for dependencies of type pom)
+            (Example: dependency>
+                       <groupId>com.baeldung</groupId>
+                       <artifactId>custom-project</artifactId>
+                       <version>1.3.2</version>
+                       <type>pom</type>
+                       <scope>import</scope>
+                   </dependency>)
+
+
+maven wrapper (to give own maven with version to be able to run on different OS)
+mvn -N io.takari:maven:wrapper -Dmaven=<maven version>
+(If we don't have the specified Maven in the wrapper properties, it'll be downloaded and installed in the folder $USER_HOME/.m2/wrapper/dists of the system)
+now replace mvn with ./mvnw
+
+
+Converting pom file extension to others
+mvn io.takari.polyglot:polyglot-translate-plugin:translate -Dinput=pom.xml -Doutput=pom.yml other formats - java, scala, atom, kotlin(kts), ruby(rb), yml
+
+
+mvn versions:use-next-releases (updates to next release version but not for jars whose versions are given through variables)
+mvn versions:use-latest-releases (----same----)
+
+
+To deal with Java version in multi-module project -> https://www.baeldung.com/maven-java-version
+
+
+mvn clean install -Dmaven.test.skip=true (to build without running tests)
+
+
+For Integration Testing -> https://www.baeldung.com/maven-integration-test
+
+
+For creating custom Archtype -> https://www.baeldung.com/maven-archetype
+
+
+Maven project can have multiple source directories under src/main/... but Java classes can be part of same/different packages across this source directories
+
+
+Running JUnit Tests in parallel -> https://www.baeldung.com/maven-junit-parallel-tests
+
+
+
+
+
+
