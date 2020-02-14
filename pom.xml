@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <sql_version>8.0.19</sql_version>
+    <mysql_version>8.0.19</mysql_version>
   </properties>
   <modules>
     <module>sub-module2</module>
